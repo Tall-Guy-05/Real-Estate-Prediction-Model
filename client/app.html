@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pune Real Estate Price Prediction</title>
+    
+    <!-- Scripts (Unchanged) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- This is the main container for our split-screen layout. -->
+    <main class="app-wrapper">
+
+        <!-- 1. The Left "Showcase" Panel -->
+        <section class="showcase-panel">
+            <div class="showcase-content">
+                <h1 class="showcase-title">Discover Your Property's True Value</h1>
+                <p class="showcase-subtitle">Instant, data-driven price estimations for real estate in Pune.</p>
+            </div>
+        </section>
+
+        <!-- 2. The Right "Form" Panel -->
+        <section class="form-panel">
+            <form class="price-form">
+                
+                <!-- Area Input Group -->
+                <div class="form-group">
+                    <label for="uiSqft" class="form-label">Area (sq. ft.)</label>
+                    <!-- The value="1000" has been removed and the placeholder updated. -->
+                    <input class="form-input" type="text" id="uiSqft" name="Squareft" placeholder="Enter sqft (e.g., 1200)">
+                </div>
+
+                <!-- BHK & Bath Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">BHK</label>
+                        <div class="switch-field" id="uiBHK">
+                            <input type="radio" id="radio-bhk-1" name="uiBHK" value="1"/><label for="radio-bhk-1">1</label>
+                            <input type="radio" id="radio-bhk-2" name="uiBHK" value="2" checked/><label for="radio-bhk-2">2</label>
+                            <input type="radio" id="radio-bhk-3" name="uiBHK" value="3"/><label for="radio-bhk-3">3</label>
+                            <input type="radio" id="radio-bhk-4" name="uiBHK" value="4"/><label for="radio-bhk-4">4</label>
+                            <input type="radio" id="radio-bhk-5" name="uiBHK" value="5"/><label for="radio-bhk-5">5</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Bathrooms</label>
+                        <div class="switch-field" id="uiBathrooms">
+                            <input type="radio" id="radio-bath-1" name="uiBathrooms" value="1"/><label for="radio-bath-1">1</label>
+                            <input type="radio" id="radio-bath-2" name="uiBathrooms" value="2" checked/><label for="radio-bath-2">2</label>
+                            <input type="radio" id="radio-bath-3" name="uiBathrooms" value="3"/><label for="radio-bath-3">3</label>
+                            <input type="radio" id="radio-bath-4" name="uiBathrooms" value="4"/><label for="radio-bath-4">4</label>
+                            <input type="radio" id="radio-bath-5" name="uiBathrooms" value="5"/><label for="radio-bath-5">5</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Location Selector Group -->
+                <div class="form-group">
+                    <label for="uiLocations" class="form-label">Location</label>
+                    <select class="form-input" name="location" id="uiLocations">
+                        <option value="" disabled selected>Select a neighborhood</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button class="submit-btn" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
+                
+                <!-- Result Display Area -->
+                <div class="result-wrapper">
+                    <div id="uiEstimatedPrice" class="result-text"></div>
+                </div>
+            </form> 
+        </section>
+
+    </main>
+
+</body>
+</html>
